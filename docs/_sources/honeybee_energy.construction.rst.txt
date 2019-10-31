@@ -1,0 +1,19 @@
+honeybee\_energy.construction package
+=====================================
+
+Submodules
+----------
+
+.. toctree::
+
+   honeybee_energy.construction.opaque
+   honeybee_energy.construction.shade
+   honeybee_energy.construction.window
+
+Module contents
+---------------
+
+.. automodule:: honeybee_energy.construction
+    :members:
+    :undoc-members:
+    :show-inheritance:

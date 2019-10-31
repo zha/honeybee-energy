@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>honeybee_energy.writer &#8212; honeybee energy  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          honeybee energy</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_energy.html">honeybee_energy package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_energy.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.construction.html">honeybee_energy.construction package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.construction.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.construction.opaque.html">honeybee_energy.construction.opaque module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.construction.shade.html">honeybee_energy.construction.shade module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.construction.window.html">honeybee_energy.construction.window module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.construction.html#module-honeybee_energy.construction">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.lib.html">honeybee_energy.lib package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.lib.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.library.html">honeybee_energy.lib.library package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../honeybee_energy.lib.library.html#module-honeybee_energy.lib.library">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.lib.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.constructions.html">honeybee_energy.lib.constructions module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.constructionsets.html">honeybee_energy.lib.constructionsets module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.materials.html">honeybee_energy.lib.materials module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.programtypes.html">honeybee_energy.lib.programtypes module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.schedules.html">honeybee_energy.lib.schedules module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.lib.scheduletypelimits.html">honeybee_energy.lib.scheduletypelimits module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.lib.html#module-honeybee_energy.lib">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.load.html">honeybee_energy.load package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.load.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.equipment.html">honeybee_energy.load.equipment module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.infiltration.html">honeybee_energy.load.infiltration module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.lighting.html">honeybee_energy.load.lighting module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.people.html">honeybee_energy.load.people module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.setpoint.html">honeybee_energy.load.setpoint module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.load.ventilation.html">honeybee_energy.load.ventilation module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.load.html#module-honeybee_energy.load">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.material.html">honeybee_energy.material package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.material.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.material.gas.html">honeybee_energy.material.gas module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.material.glazing.html">honeybee_energy.material.glazing module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.material.opaque.html">honeybee_energy.material.opaque module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.material.shade.html">honeybee_energy.material.shade module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.material.html#module-honeybee_energy.material">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.properties.html">honeybee_energy.properties package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.properties.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.aperture.html">honeybee_energy.properties.aperture module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.door.html">honeybee_energy.properties.door module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.face.html">honeybee_energy.properties.face module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.model.html">honeybee_energy.properties.model module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.room.html">honeybee_energy.properties.room module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.properties.shade.html">honeybee_energy.properties.shade module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.properties.html#module-honeybee_energy.properties">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.schedule.html">honeybee_energy.schedule package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.schedule.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.schedule.day.html">honeybee_energy.schedule.day module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.schedule.fixedinterval.html">honeybee_energy.schedule.fixedinterval module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.schedule.rule.html">honeybee_energy.schedule.rule module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.schedule.ruleset.html">honeybee_energy.schedule.ruleset module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.schedule.typelimit.html">honeybee_energy.schedule.typelimit module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.schedule.html#module-honeybee_energy.schedule">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.simulation.html">honeybee_energy.simulation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.simulation.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.control.html">honeybee_energy.simulation.control module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.daylightsaving.html">honeybee_energy.simulation.daylightsaving module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.output.html">honeybee_energy.simulation.output module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.runperiod.html">honeybee_energy.simulation.runperiod module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.shadowcalculation.html">honeybee_energy.simulation.shadowcalculation module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_energy.simulation.sizing.html">honeybee_energy.simulation.sizing module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_energy.simulation.html#module-honeybee_energy.simulation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_energy.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.boundarycondition.html">honeybee_energy.boundarycondition module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.constructionset.html">honeybee_energy.constructionset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.idealair.html">honeybee_energy.idealair module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.programtype.html">honeybee_energy.programtype module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.reader.html">honeybee_energy.reader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.run.html">honeybee_energy.run module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.simulationparameter.html">honeybee_energy.simulationparameter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_energy.writer.html">honeybee_energy.writer module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_energy.html#module-honeybee_energy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_energy.html">honeybee_energy package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_energy.html">honeybee_energy package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <h1>Source code for honeybee_energy.writer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;Methods to write to idf.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">honeybee.room</span> <span class="k">import</span> <span class="n">Room</span>
+<span class="kn">from</span> <span class="nn">honeybee.face</span> <span class="k">import</span> <span class="n">Face</span>
+<span class="kn">from</span> <span class="nn">honeybee.boundarycondition</span> <span class="k">import</span> <span class="n">Outdoors</span><span class="p">,</span> <span class="n">Surface</span><span class="p">,</span> <span class="n">Ground</span>
+<span class="kn">from</span> <span class="nn">honeybee.facetype</span> <span class="k">import</span> <span class="n">RoofCeiling</span><span class="p">,</span> <span class="n">AirWall</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">izip</span> <span class="k">as</span> <span class="nb">zip</span>  <span class="c1"># python 2</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">xrange</span> <span class="o">=</span> <span class="nb">range</span>  <span class="c1"># python 3</span>
+
+
+<div class="viewcode-block" id="generate_idf_string"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.generate_idf_string">[docs]</a><span class="k">def</span> <span class="nf">generate_idf_string</span><span class="p">(</span><span class="n">object_type</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get an IDF string representation of an EnergyPlus object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        object_type: Text representing the expected start of the IDF object.</span>
+<span class="sd">            (ie. WindowMaterial:Glazing).</span>
+<span class="sd">        values: A list of values associated with the EnergyPlus object in the</span>
+<span class="sd">            order that they are supposed to be written to IDF format.</span>
+<span class="sd">        comments: A list of text comments with the same length as the values.</span>
+<span class="sd">            If None, no comments will be written into the object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ep_str: Am EnergyPlus IDF string representing a single object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">comments</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">space_count</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">25</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">values</span><span class="p">)</span>
+        <span class="n">spaces</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">s_c</span> <span class="o">*</span> <span class="s1">&#39; &#39;</span> <span class="k">if</span> <span class="n">s_c</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39; &#39;</span> <span class="k">for</span> <span class="n">s_c</span> <span class="ow">in</span> <span class="n">space_count</span><span class="p">)</span>
+        <span class="n">body_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">!- </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">spc</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">spc</span><span class="p">,</span> <span class="n">com</span> <span class="ow">in</span>
+                              <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">spaces</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">comments</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">object_type</span><span class="p">,</span> <span class="n">body_str</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># ensure we don&#39;t have an extra line break</span>
+            <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">ep_str</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">;</span><span class="si">{}</span><span class="s1">!- </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">spaces</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">comments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># include an extra line break</span>
+            <span class="n">end_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1">;</span><span class="si">{}</span><span class="s1">!- </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">spaces</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">comments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> \
+                <span class="k">if</span> <span class="n">comments</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1">;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ep_str</span><span class="p">,</span> <span class="n">end_str</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">body_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">object_type</span><span class="p">,</span> <span class="n">body_str</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># ensure we don&#39;t have an extra line break</span>
+            <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ep_str</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># include an extra line break</span>
+            <span class="n">ep_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ep_str</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1">;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+    <span class="k">return</span> <span class="n">ep_str</span></div>
+
+
+<div class="viewcode-block" id="door_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.door_to_idf">[docs]</a><span class="k">def</span> <span class="nf">door_to_idf</span><span class="p">(</span><span class="n">door</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an IDF string representation of a Door.</span>
+
+<span class="sd">    Note that the resulting string does not include full construction definitions.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        door: A honeyee Door for which an IDF representation will be returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">door_bc_obj</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">boundary_condition_object</span> <span class="k">if</span> \
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">boundary_condition</span><span class="p">,</span> <span class="n">Surface</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="s1">&#39;Door&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">door</span><span class="o">.</span><span class="n">is_glass</span> <span class="k">else</span> <span class="s1">&#39;GlassDoor&#39;</span><span class="p">,</span>
+              <span class="n">door</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">construction</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="n">door</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">door</span><span class="o">.</span><span class="n">has_parent</span> <span class="k">else</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+              <span class="n">door_bc_obj</span><span class="p">,</span>
+              <span class="n">door</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">view_factor</span><span class="p">,</span>
+              <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="c1"># TODO: Implement Frame and Divider objects on WindowConstructions</span>
+              <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+              <span class="nb">len</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span>
+              <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">door</span><span class="o">.</span><span class="n">upper_left_vertices</span><span class="p">))</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;surface type&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;construction name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;building surface name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;boundary condition object&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;view factor to ground&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;frame and divider name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;multiplier&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;number of vertices&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;FenestrationSurface:Detailed&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="aperture_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.aperture_to_idf">[docs]</a><span class="k">def</span> <span class="nf">aperture_to_idf</span><span class="p">(</span><span class="n">aperture</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an IDF string representation of an Aperture.</span>
+
+<span class="sd">    Note that the resulting string does not include full construction definitions.</span>
+
+<span class="sd">    Also note that this does not include any of the shades assigned to the Aperture</span>
+<span class="sd">    in the resulting string. To write these objects into a final string, you must</span>
+<span class="sd">    loop through the Aperture.shades, and call the to.idf method on each one.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        aperture: A honeyee Aperture for which an IDF representation will be returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ap_bc_obj</span> <span class="o">=</span> <span class="n">aperture</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">boundary_condition_object</span> <span class="k">if</span> \
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">aperture</span><span class="o">.</span><span class="n">boundary_condition</span><span class="p">,</span> <span class="n">Surface</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">aperture</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="s1">&#39;Window&#39;</span><span class="p">,</span>
+              <span class="n">aperture</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">construction</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="n">aperture</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">aperture</span><span class="o">.</span><span class="n">has_parent</span> <span class="k">else</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+              <span class="n">ap_bc_obj</span><span class="p">,</span>
+              <span class="n">aperture</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">view_factor</span><span class="p">,</span>
+              <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="c1"># TODO: Implement Frame and Divider objects on WindowConstructions</span>
+              <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+              <span class="nb">len</span><span class="p">(</span><span class="n">aperture</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span>
+              <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">aperture</span><span class="o">.</span><span class="n">upper_left_vertices</span><span class="p">))</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;surface type&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;construction name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;building surface name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;boundary condition object&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;view factor to ground&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;frame and divider name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;multiplier&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;number of vertices&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;FenestrationSurface:Detailed&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="shade_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.shade_to_idf">[docs]</a><span class="k">def</span> <span class="nf">shade_to_idf</span><span class="p">(</span><span class="n">shade</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an IDF string representation of a Shade.</span>
+
+<span class="sd">    Note that the resulting string will possess both the Shading object</span>
+<span class="sd">    as well as a ShadingProperty:Reflectance if the Shade&#39;s construction</span>
+<span class="sd">    is not defaulted.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        shade: A honeyee Shade for which an IDF representation will be returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># create the Shading:Detailed IDF string</span>
+    <span class="n">trans_sched</span> <span class="o">=</span> <span class="n">shade</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">transmittance_schedule</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> \
+        <span class="n">shade</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">transmittance_schedule</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">shade</span><span class="o">.</span><span class="n">has_parent</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">Room</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">Face</span><span class="p">):</span>
+            <span class="n">base_srf</span> <span class="o">=</span> <span class="n">shade</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Aperture for parent</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">base_srf</span> <span class="o">=</span> <span class="n">shade</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">base_srf</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span>  <span class="c1"># aperture without a parent</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                  <span class="n">base_srf</span><span class="p">,</span>
+                  <span class="n">trans_sched</span><span class="p">,</span>
+                  <span class="nb">len</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span>
+                  <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">shade</span><span class="o">.</span><span class="n">upper_left_vertices</span><span class="p">))</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;base surface&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;transmittance schedule&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;number of vertices&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">shade_str</span> <span class="o">=</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;Shading:Zone:Detailed&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                  <span class="n">trans_sched</span><span class="p">,</span>
+                  <span class="nb">len</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span>
+                  <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">shade</span><span class="o">.</span><span class="n">upper_left_vertices</span><span class="p">))</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;transmittance schedule&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;number of vertices&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">shade_str</span> <span class="o">=</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;Shading:Building:Detailed&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span>
+
+    <span class="c1"># create the ShadingProperty:Reflectance IDF string if construction is not default</span>
+    <span class="n">construction</span> <span class="o">=</span> <span class="n">shade</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">construction</span>
+    <span class="k">if</span> <span class="n">construction</span><span class="o">.</span><span class="n">is_default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">shade_str</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                  <span class="n">construction</span><span class="o">.</span><span class="n">solar_reflectance</span><span class="p">,</span>
+                  <span class="n">construction</span><span class="o">.</span><span class="n">visible_reflectance</span><span class="p">)</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;shading surface name&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;diffuse solar reflectance&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;diffuse visible reflectance&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">construction</span><span class="o">.</span><span class="n">is_specular</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">values</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">construction</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">comments</span> <span class="o">=</span> <span class="n">comments</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;glazed fraction of surface&#39;</span><span class="p">,</span> <span class="s1">&#39;glazing construction&#39;</span><span class="p">)</span>
+        <span class="n">constr_str</span> <span class="o">=</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;ShadingProperty:Reflectance&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">shade_str</span><span class="p">,</span> <span class="n">constr_str</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="face_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.face_to_idf">[docs]</a><span class="k">def</span> <span class="nf">face_to_idf</span><span class="p">(</span><span class="n">face</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an IDF string representation of a Face.</span>
+
+<span class="sd">    Note that the resulting string does not include full construction definitions.</span>
+
+<span class="sd">    Also note that this does not include any of the shades assigned to the Face</span>
+<span class="sd">    in the resulting string. Nor does it include the strings for the</span>
+<span class="sd">    apertures or doors. To write these objects into a final string, you must</span>
+<span class="sd">    loop through the Face.shades, Face.apertures, and Face.doors and call the</span>
+<span class="sd">    to.idf method on each one.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        face: A honeyee Face for which an IDF representation will be returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">RoofCeiling</span><span class="p">):</span>
+        <span class="n">face_type</span> <span class="o">=</span> <span class="s1">&#39;Roof&#39;</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="p">,</span> <span class="p">(</span><span class="n">Outdoors</span><span class="p">,</span> <span class="n">Ground</span><span class="p">))</span> \
+            <span class="k">else</span> <span class="s1">&#39;Ceiling&#39;</span>  <span class="c1"># EnergyPlus distinguishes between Roof and Ceiling</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">AirWall</span><span class="p">):</span>
+        <span class="n">face_type</span> <span class="o">=</span> <span class="s1">&#39;Wall&#39;</span>  <span class="c1"># air walls are not a Surface type in EnergyPlus</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">face_type</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">face_bc_obj</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">boundary_condition_object</span> <span class="k">if</span> \
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="p">,</span> <span class="n">Surface</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="n">face_type</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">construction</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">face</span><span class="o">.</span><span class="n">has_parent</span> <span class="k">else</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+              <span class="n">face_bc_obj</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">sun_exposure_idf</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">wind_exposure_idf</span><span class="p">,</span>
+              <span class="n">face</span><span class="o">.</span><span class="n">boundary_condition</span><span class="o">.</span><span class="n">view_factor</span><span class="p">,</span>
+              <span class="nb">len</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">vertices</span><span class="p">),</span>
+              <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">upper_left_vertices</span><span class="p">))</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;surface type&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;construction name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;zone name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;boundary condition&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;boundary condition object&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;sun exposure&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;wind exposure&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;view factor to ground&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;number of vertices&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;BuildingSurface:Detailed&#39;</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="room_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.room_to_idf">[docs]</a><span class="k">def</span> <span class="nf">room_to_idf</span><span class="p">(</span><span class="n">room</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an IDF string representation of a Room.</span>
+
+<span class="sd">    The resulting string will include all internal gain defintiions for the Room</span>
+<span class="sd">    (people, lights, equipment), infiltration definitions, ventilation requirements,</span>
+<span class="sd">    thermostat objects, and ideal air load objects. However, complete schedule</span>
+<span class="sd">    defintions assigned to these objects are not included.</span>
+
+<span class="sd">    Also note that this method does not write any of the geometry of the Room</span>
+<span class="sd">    into the resulting string. To represent the Room geometry, you must loop</span>
+<span class="sd">    through the Room.shades and Room.faces and call the to.idf method on</span>
+<span class="sd">    each one. Note that you will likely also need to call to.idf on the</span>
+<span class="sd">    apertures, doors and shades of each face as well as the shades on each</span>
+<span class="sd">    aperture.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        room: A honeyee Room for which an IDF representation will be returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># list of zone strings that will eventually be joined</span>
+    <span class="n">zone_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;!-   ________ZONE:</span><span class="si">{}</span><span class="s1">________</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">display_name</span><span class="p">)]</span>
+
+    <span class="c1"># write the zone defintiion</span>
+    <span class="n">zone_values</span> <span class="o">=</span> <span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">,)</span>
+    <span class="n">zone_comments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,)</span>
+    <span class="k">if</span> <span class="n">room</span><span class="o">.</span><span class="n">multiplier</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">zone_values</span> <span class="o">=</span> <span class="n">zone_values</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">room</span><span class="o">.</span><span class="n">multiplier</span><span class="p">)</span>
+        <span class="n">zone_comments</span> <span class="o">=</span> <span class="n">zone_comments</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;north&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;multiplier&#39;</span><span class="p">)</span>
+    <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generate_idf_string</span><span class="p">(</span><span class="s1">&#39;Zone&#39;</span><span class="p">,</span> <span class="n">zone_values</span><span class="p">,</span> <span class="n">zone_comments</span><span class="p">))</span>
+
+    <span class="c1"># write the load definitions</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">people</span>
+    <span class="n">lighting</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">lighting</span>
+    <span class="n">electric_equipment</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">electric_equipment</span>
+    <span class="n">gas_equipment</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">gas_equipment</span>
+    <span class="n">infiltration</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">infiltration</span>
+    <span class="n">ventilation</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">ventilation</span>
+
+    <span class="k">if</span> <span class="n">people</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">lighting</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lighting</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">electric_equipment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">electric_equipment</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">gas_equipment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gas_equipment</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">infiltration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infiltration</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="c1"># write the ventilation, thermostat, and ideal air system</span>
+    <span class="k">if</span> <span class="n">ventilation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ventilation</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">is_conditioned</span><span class="p">:</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">hvac</span><span class="o">.</span><span class="n">to_idf</span><span class="p">())</span>
+        <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">humidistat</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">setpoint</span><span class="o">.</span><span class="n">to_idf_humidistat</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">humidistat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">zone_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">humidistat</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">zone_str</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="model_to_idf"><a class="viewcode-back" href="../../honeybee_energy.writer.html#honeybee_energy.writer.model_to_idf">[docs]</a><span class="k">def</span> <span class="nf">model_to_idf</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">schedule_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">solar_distribution</span><span class="o">=</span><span class="s1">&#39;FullInteriorAndExteriorWithReflections&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate an IDF string representation of a Model.</span>
+
+<span class="sd">    The resulting string will include all geometry (Rooms, Faces, Shades, Apertures,</span>
+<span class="sd">    Doors), all fully-detailed counstructions + materials, all fully-detailed</span>
+<span class="sd">    schedules, and the room properties (loads, setpoints, and HVAC).</span>
+
+<span class="sd">    Essentially, the string includes everything needed to simulate the model</span>
+<span class="sd">    except the simulation parameters and design day objects. So joining this</span>
+<span class="sd">    string with the output of SimulationParameter.to_idf() and some deisgn day</span>
+<span class="sd">    strings from a .ddy file should create a simulate-able IDF.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: A honeyee Model for which an IDF representation will be returned.</span>
+<span class="sd">        schedule_directory: An optional file directory to which any file-based</span>
+<span class="sd">            schedules should be written to. If None, it will be written to the</span>
+<span class="sd">            user folder assuming the project is entitled &#39;unnamed&#39;.</span>
+<span class="sd">        solar_distribution: Text desribing how EnergyPlus should treat beam solar</span>
+<span class="sd">            radiation reflected from surfaces. Default:</span>
+<span class="sd">            FullInteriorAndExteriorWithReflections. Choose from the following:</span>
+<span class="sd">                * MinimalShadowing</span>
+<span class="sd">                * FullExterior</span>
+<span class="sd">                * FullInteriorAndExterior</span>
+<span class="sd">                * FullExteriorWithReflections</span>
+<span class="sd">                * FullInteriorAndExteriorWithReflections</span>
+
+<span class="sd">    Usage:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        import os</span>
+<span class="sd">        from ladybug.futil import write_to_file_by_name</span>
+<span class="sd">        from ladybug.designday import DDY</span>
+<span class="sd">        from honeybee.model import Model</span>
+<span class="sd">        from honeybee.room import Room</span>
+<span class="sd">        from honeybee_energy.lib.programtypes import office_program</span>
+<span class="sd">        from honeybee_energy.idealair import IdealAirSystem</span>
+<span class="sd">        from honeybee_energy.simulationparameter import SimulationParameter</span>
+
+<span class="sd">        # Get input Model</span>
+<span class="sd">        room = Room.from_box(&#39;Tiny House Zone&#39;, 5, 10, 3)</span>
+<span class="sd">        room.properties.energy.program_type = office_program</span>
+<span class="sd">        room.properties.energy.hvac = IdealAirSystem()</span>
+<span class="sd">        model = Model(&#39;Tiny House&#39;, [room])</span>
+
+<span class="sd">        # Get the input SimulationParameter</span>
+<span class="sd">        sim_par = SimulationParameter()</span>
+<span class="sd">        sim_par.output.add_zone_energy_use()</span>
+
+<span class="sd">        # Get the input design days</span>
+<span class="sd">        ddy_file = &#39;C:/EnergyPlusV9-0-1/WeatherData/USA_CO_Golden-NREL.724666_TMY3.ddy&#39;</span>
+<span class="sd">        ddy_obj = DDY.from_ddy_file(ddy_file)</span>
+<span class="sd">        ddy_strs = [ddy.ep_style_string for ddy in ddy_obj.design_days if</span>
+<span class="sd">                    &#39;99.6%&#39; in ddy.name or &#39;.4%&#39; in ddy.name]</span>
+
+<span class="sd">        # create the string for simulation paramters and model</span>
+<span class="sd">        sim_par_str = sim_par.to_idf()</span>
+<span class="sd">        model_str = model.to.idf(model)</span>
+<span class="sd">        idf_str = &#39;\n\n&#39;.join((sim_par_str, &#39;\n\n&#39;.join(ddy_strs), model_str, add_str))</span>
+
+<span class="sd">        # write the final string into an IDF</span>
+<span class="sd">        directory = os.path.join(os.environ[&#39;USERPROFILE&#39;], &#39;honeybee&#39;, &#39;unnamed&#39;)</span>
+<span class="sd">        idf = os.path.join(directory, &#39;in.idf&#39;)</span>
+<span class="sd">        write_to_file_by_name(directory, &#39;in.idf&#39;, idf_str, True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># write the building object into the string</span>
+    <span class="n">model_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;!-   =======================================</span><span class="se">\n</span><span class="s1">&#39;</span>
+                 <span class="s1">&#39;!-   ================ MODEL ================</span><span class="se">\n</span><span class="s1">&#39;</span>
+                 <span class="s1">&#39;!-   =======================================</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">building_idf</span><span class="p">(</span><span class="n">solar_distribution</span><span class="p">))</span>
+
+    <span class="c1"># write all of the schedules and type limits</span>
+    <span class="n">sched_strs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">type_limits</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sched_dir</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">sched</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">schedules</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">year_schedule</span><span class="p">,</span> <span class="n">week_schedules</span> <span class="o">=</span> <span class="n">sched</span><span class="o">.</span><span class="n">to_idf</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">week_schedules</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sched_strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">year_schedule</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">day_scheds</span> <span class="o">=</span> <span class="p">[</span><span class="n">day</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">sched</span><span class="o">.</span><span class="n">schedule_type_limit</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">sched</span><span class="o">.</span><span class="n">day_schedules</span><span class="p">]</span>
+                <span class="n">sched_strs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">year_schedule</span><span class="p">]</span> <span class="o">+</span> <span class="n">week_schedules</span> <span class="o">+</span> <span class="n">day_scheds</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>  <span class="c1"># ScheduleFixedInterval</span>
+            <span class="k">if</span> <span class="n">sched_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sched_dir</span> <span class="o">=</span> <span class="n">schedule_directory</span> <span class="k">if</span> <span class="n">schedule_directory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> \
+                    <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USERPROFILE&#39;</span><span class="p">],</span> <span class="s1">&#39;honeybee&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;unnamed&#39;</span><span class="p">,</span> <span class="s1">&#39;schedules&#39;</span><span class="p">)</span>
+            <span class="n">sched_strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sched</span><span class="o">.</span><span class="n">to_idf</span><span class="p">(</span><span class="n">sched_dir</span><span class="p">))</span>
+        <span class="n">t_lim</span> <span class="o">=</span> <span class="n">sched</span><span class="o">.</span><span class="n">schedule_type_limit</span>
+        <span class="k">if</span> <span class="n">t_lim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_instance_in_array</span><span class="p">(</span><span class="n">t_lim</span><span class="p">,</span> <span class="n">type_limits</span><span class="p">):</span>
+            <span class="n">type_limits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_lim</span><span class="p">)</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ========= SCHEDULE TYPE LIMITS =========</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">type_limit</span><span class="o">.</span><span class="n">to_idf</span><span class="p">()</span> <span class="k">for</span> <span class="n">type_limit</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">type_limits</span><span class="p">)])</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ============== SCHEDULES ==============</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sched_strs</span><span class="p">)</span>
+
+    <span class="c1"># write all of the materials and constructions</span>
+    <span class="n">materials</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">construction_strs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">constr</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">constructions</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">materials</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">constr</span><span class="o">.</span><span class="n">materials</span><span class="p">)</span>
+            <span class="n">construction_strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">constr</span><span class="o">.</span><span class="n">to_idf</span><span class="p">())</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># ShadeConstruction; No need to write to IDF</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ============== MATERIALS ==============</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">mat</span><span class="o">.</span><span class="n">to_idf</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">materials</span><span class="p">)])</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ============ CONSTRUCTIONS ============</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">construction_strs</span><span class="p">)</span>
+
+    <span class="c1"># write all of the zone geometry</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ============ ZONE GEOMETRY ============</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">room</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">rooms</span><span class="p">:</span>
+        <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">room</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">room</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">room</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+            <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">face</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">ap</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">apertures</span><span class="p">:</span>
+                <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">ap</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">shade</span> <span class="ow">in</span> <span class="n">ap</span><span class="o">.</span><span class="n">outdoor_shades</span><span class="p">:</span>
+                    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">shade</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">doors</span><span class="p">:</span>
+                <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dr</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">dr</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">shade</span> <span class="ow">in</span> <span class="n">face</span><span class="o">.</span><span class="n">outdoor_shades</span><span class="p">:</span>
+                <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">shade</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">shade</span> <span class="ow">in</span> <span class="n">room</span><span class="o">.</span><span class="n">outdoor_shades</span><span class="p">:</span>
+            <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">shade</span><span class="p">))</span>
+
+    <span class="c1"># write all context shade geometry</span>
+    <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;!-   ========== CONTEXT GEOMETRY ==========</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">shade</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">orphaned_shades</span><span class="p">:</span>
+        <span class="n">model_str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">idf</span><span class="p">(</span><span class="n">shade</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_str</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_instance_in_array</span><span class="p">(</span><span class="n">object_instance</span><span class="p">,</span> <span class="n">object_array</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check if a specific object instance is already in an array.</span>
+
+<span class="sd">    This can be much faster than  `if object_instance in object_arrary`</span>
+<span class="sd">    when you expect to be testing a lot of the same instance of an object for</span>
+<span class="sd">    inclusion in an array since the builtin method uses an == operator to</span>
+<span class="sd">    test inclusion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">object_array</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="n">object_instance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
