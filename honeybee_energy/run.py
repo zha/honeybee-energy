@@ -58,9 +58,10 @@ def run_idf(idf_file_path, epw_file_path, energyplus_directory):
     # write a batch file
     expand_path = os.path.join(energyplus_directory, 'ExpandObjects')
     run_path = os.path.join(energyplus_directory, 'EnergyPlus')
+    eso_path = os.path.join(energyplus_directory, 'PostProcess', 'ReadVarsESO')   # Also run ESO to convert ESO to CSV
     working_drive = directory[:2]
-    batch = '{}\ncd {}\n{}\nif exist expanded.idf MOVE expanded.idf in.idf\n{}'.format(
-        working_drive, directory, expand_path, run_path)
+    batch = '{}\ncd {}\n{}\nif exist expanded.idf MOVE expanded.idf in.idf\n{}\n{}'.format(
+        working_drive, directory, expand_path, run_path, eso_path)
     write_to_file_by_name(directory, 'in.bat', batch, True)
 
     # run the batch file
