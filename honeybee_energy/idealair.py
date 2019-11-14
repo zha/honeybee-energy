@@ -252,7 +252,7 @@ class IdealAirSystem(object):
 
         # extract all of the fields from this object and its parent
         if self.heating_limit is not None:
-            h_lim_type = 'LimitCapacity'
+            h_lim_type = 'LimitFlowRateAndCapacity' # Modified to limit both flowrate and capacity
             heat_limit = self.heating_limit
         else:
             h_lim_type = 'NoLimit'
