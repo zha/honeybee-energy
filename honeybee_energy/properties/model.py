@@ -112,9 +112,9 @@ class ModelEnergyProperties(object):
         room_constrs = []
         for cnstr_set in self.construction_sets:
             room_constrs.extend(cnstr_set.modified_constructions_unique)
-        all_constrs = self.global_construction_set.constructions_unique + \
-            room_constrs + self.face_constructions + self.shade_constructions
-        return list(set(all_constrs))
+        # all_constrs = self.global_construction_set.constructions_unique + \
+            # room_constrs + self.face_constructions + self.shade_constructions
+        return list(set(self.face_constructions))   # Modification 1: only return constructions that are used
 
     @property
     def face_constructions(self):
