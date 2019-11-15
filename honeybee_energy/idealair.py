@@ -322,15 +322,21 @@ class IdealAirSystem(object):
         else:
             heat_recovery = 'Sensible'
 
+        if self.heating_availability_schedule is not None:
+            heating_avail_sch = self.heating_availability_schedule.name
+        if self.cooling_availability_schedule is not None:
+            cooling_avail_sch = self.cooling_availability_schedule.name
+
+
         # return a full IDF string
         thermostat = '{}..{}'.format(self._parent.properties.energy.setpoint.name,
                                      self._parent.name)
         values = (self._parent.name, thermostat,
-                  '', '', '', '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
-                  air_limit, cool_limit, '', '', dehumid_type, '', dehumid_setpt,
-                  humid_type, humid_setpt, oa_method, '', '', '', oa_name, dcv,
-                  self.economizer_type, heat_recovery, self.sensible_heat_recovery,
-                  self.latent_heat_recovery)
+                  '', 40, 13, '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
+                  air_limit, cool_limit, heating_avail_sch, cooling_avail_sch,
+                  dehumid_type, '', dehumid_setpt, humid_type, humid_setpt, oa_method,
+                  '', '', '', oa_name, dcv,   self.economizer_type, heat_recovery,
+                  self.sensible_heat_recovery, self.latent_heat_recovery)
         comments = (
             'zone name', 'template thermostat name', 'availability schedule',
             'heating supply air temp {C}', 'cooling supply air temp {C}',
