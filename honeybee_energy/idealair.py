@@ -334,7 +334,7 @@ class IdealAirSystem(object):
         values = (self._parent.name, thermostat,
                   '', 40, 13, '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
                   air_limit, cool_limit, heating_avail_sch, cooling_avail_sch,
-                  dehumid_type, '', dehumid_setpt, humid_type, humid_setpt, oa_method,
+                  dehumid_type, 0.7, dehumid_setpt, humid_type, humid_setpt, oa_method,
                   '', '', '', oa_name, dcv,   self.economizer_type, heat_recovery,
                   self.sensible_heat_recovery, self.latent_heat_recovery)
         comments = (
