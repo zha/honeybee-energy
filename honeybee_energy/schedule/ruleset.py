@@ -173,7 +173,7 @@ class ScheduleRuleset(object):
             day_scheds.append(self._winter_designday_schedule)
         for rule in self.schedule_rules:
             day_scheds.append(rule._schedule_day)
-        return day_scheds
+        return list(set(day_scheds))  # Since I disabled _check_schedule_parent, I need to remove duplicate
 
     @property
     def is_constant(self):
@@ -1027,15 +1027,15 @@ class ScheduleRuleset(object):
 
     def _check_schedule_parent(self, schedule, sch_type='child'):
         """Check that a ScheduleDay has only one parent."""
-        if schedule._parent is not None:
-            raise ValueError(
-                'ScheduleDay objects can be assigned to a ScheduleRuleset only once.\n'
-                'ScheduleDay "{}" cannot be the {} of ScheduleRuleset "{}" since it is '
-                'already assigned to "{}".\nTry duplicating the ScheduleDay, changing '
-                'its name, and then assigning it to this ScheduleRuleset.'.format(
-                    schedule.name, sch_type, self.name, schedule._parent.name))
-        schedule._parent = self
-
+        # if schedule._parent is not None:
+        #     raise ValueError(
+        #         'ScheduleDay objects can be assigned to a ScheduleRuleset only once.\n'
+        #         'ScheduleDay "{}" cannot be the {} of ScheduleRuleset "{}" since it is '
+        #         'already assigned to "{}".\nTry duplicating the ScheduleDay, changing '
+        #         'its name, and then assigning it to this ScheduleRuleset.'.format(
+        #             schedule.name, sch_type, self.name, schedule._parent.name))
+        # schedule._parent = self
+        pass
     def _check_schedule_rules(self, rules):
         """Check schedule_rules whenever they come through the setter."""
         if rules is None:
