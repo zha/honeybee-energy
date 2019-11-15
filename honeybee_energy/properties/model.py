@@ -228,6 +228,7 @@ class ModelEnergyProperties(object):
             infiltration = room.properties.energy._infiltration
             ventilation = room.properties.energy._ventilation
             setpoint = room.properties.energy._setpoint
+            hvac = room.properties.energy._hvac
             if people is not None:
                 self._check_and_add_schedule(people.occupancy_schedule, scheds)
                 self._check_and_add_schedule(people.activity_schedule, scheds)
@@ -249,6 +250,10 @@ class ModelEnergyProperties(object):
                         setpoint.humidifying_schedule, scheds)
                     self._check_and_add_schedule(
                         setpoint.dehumidifying_schedule, scheds)
+            if hvac is not None:
+                self._check_and_add_schedule(hvac.heating_availability_schedule, scheds)
+                self._check_and_add_schedule(hvac.cooling_availability_schedule, scheds)
+
         return list(set(scheds))
 
     @property

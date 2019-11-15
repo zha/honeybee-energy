@@ -6,7 +6,8 @@ from .reader import parse_idf_string
 from .writer import generate_idf_string
 
 from honeybee.typing import valid_string, float_positive, float_in_range
-
+from .schedule.ruleset import ScheduleRuleset
+from .schedule.fixedinterval import ScheduleFixedInterval
 
 class IdealAirSystem(object):
     """Simple ideal air system object used to condition zones.
@@ -25,13 +26,15 @@ class IdealAirSystem(object):
     """
     __slots__ = ('_heating_limit', '_cooling_limit', '_economizer_type',
                  '_demand_controlled_ventilation', '_sensible_heat_recovery',
-                 '_latent_heat_recovery', '_parent')
+                 '_latent_heat_recovery', '_heating_availability_schedule',
+                 '_cooling_availability_schedule', '_parent')
     ECONOMIZER_TYPES = ('NoEconomizer', 'DifferentialDryBulb', 'DifferentialEnthalpy')
 
     def __init__(self, heating_limit='autosize', cooling_limit='autosize',
                  economizer_type='DifferentialDryBulb',
                  demand_controlled_ventilation=False,
-                 sensible_heat_recovery=0, latent_heat_recovery=0):
+                 sensible_heat_recovery=0, latent_heat_recovery=0, heating_availability_schedule = None,
+                 cooling_availability_schedule= None):
         """Initialize IdealAirSystem.
 
         Args:
@@ -69,6 +72,8 @@ class IdealAirSystem(object):
         self.demand_controlled_ventilation = demand_controlled_ventilation
         self.sensible_heat_recovery = sensible_heat_recovery
         self.latent_heat_recovery = latent_heat_recovery
+        self.heating_availability_schedule = heating_availability_schedule
+        self.cooling_availability_schedule = cooling_availability_schedule
 
     @property
     def heating_limit(self):
@@ -152,6 +157,32 @@ class IdealAirSystem(object):
     def latent_heat_recovery(self, value):
         self._latent_heat_recovery = float_in_range(
             value, 0.0, 1.0, 'ideal air latent heat recovery')
+
+    @property
+    def heating_availability_schedule(self):
+        """Get or set a ScheduleRuleset or ScheduleFixedInterval for the occupancy."""
+        return self._heating_availability_schedule
+
+    @heating_availability_schedule.setter
+    def heating_availability_schedule(self, value):
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+            'Expected ScheduleRuleset or ScheduleFixedInterval. ' \
+            ' Got {}.'.format(type(value))
+        value.lock()   # lock editing in case schedule has multiple references
+        self._heating_availability_schedule = value
+
+    @property
+    def cooling_availability_schedule(self):
+        """Get or set a ScheduleRuleset or ScheduleFixedInterval for the occupancy."""
+        return self._cooling_availability_schedule
+
+    @cooling_availability_schedule.setter
+    def cooling_availability_schedule(self, value):
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+            'Expected ScheduleRuleset or ScheduleFixedInterval. ' \
+            ' Got {}.'.format(type(value))
+        value.lock()  # lock editing in case schedule has multiple references
+        self._cooling_availability_schedule = value
 
     @classmethod
     def from_idf(cls, idf_string):
@@ -295,7 +326,7 @@ class IdealAirSystem(object):
         thermostat = '{}..{}'.format(self._parent.properties.energy.setpoint.name,
                                      self._parent.name)
         values = (self._parent.name, thermostat,
-                  '', '', '', '', '', h_lim_type, '', heat_limit, c_lim_type,
+                  '', '', '', '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
                   air_limit, cool_limit, '', '', dehumid_type, '', dehumid_setpt,
                   humid_type, humid_setpt, oa_method, '', '', '', oa_name, dcv,
                   self.economizer_type, heat_recovery, self.sensible_heat_recovery,
