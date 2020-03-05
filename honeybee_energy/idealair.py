@@ -25,12 +25,15 @@ class IdealAirSystem(object):
         * latent_heat_recovery
     """
     __slots__ = ('_heating_limit', '_cooling_limit', '_economizer_type',
+                 '_cooling_supply_air_limit', '_heating_supply_air_limit',
                  '_demand_controlled_ventilation', '_sensible_heat_recovery',
                  '_latent_heat_recovery', '_heating_availability_schedule',
                  '_cooling_availability_schedule', '_parent')
     ECONOMIZER_TYPES = ('NoEconomizer', 'DifferentialDryBulb', 'DifferentialEnthalpy')
 
     def __init__(self, heating_limit='autosize', cooling_limit='autosize',
+                 cooling_supply_air_limit = 'autosize',
+                 heating_supply_air_limit = 'autosize',
                  economizer_type='DifferentialDryBulb',
                  demand_controlled_ventilation=False,
                  sensible_heat_recovery=0, latent_heat_recovery=0, heating_availability_schedule = None,
@@ -68,6 +71,10 @@ class IdealAirSystem(object):
         self._parent = None
         self.heating_limit = heating_limit
         self.cooling_limit = cooling_limit
+
+        self._cooling_supply_air_limit = cooling_supply_air_limit
+        self._heating_supply_air_limit = heating_supply_air_limit
+
         self.economizer_type = economizer_type
         self.demand_controlled_ventilation = demand_controlled_ventilation
         self.sensible_heat_recovery = sensible_heat_recovery
@@ -290,7 +297,7 @@ class IdealAirSystem(object):
             heat_limit = ''
         if self.cooling_limit is not None:
             c_lim_type = 'LimitFlowRateAndCapacity'
-            air_limit = 'autosize'
+            air_limit = self._cooling_supply_air_limit
             cool_limit = self.cooling_limit
         else:
             c_lim_type = 'NoLimit'
