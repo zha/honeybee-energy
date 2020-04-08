@@ -5,6 +5,8 @@ from __future__ import division
 from ._base import _LoadBase
 from ..schedule.ruleset import ScheduleRuleset
 from ..schedule.fixedinterval import ScheduleFixedInterval
+
+from ..schedule.csvschedule import CSVSchedule
 from ..reader import parse_idf_string
 from ..writer import generate_idf_string
 
@@ -103,8 +105,8 @@ class Setpoint(_LoadBase):
             self._check_humidity_schedule_type(value, 'Humidifying Setpoint')
             value.lock()   # lock editing in case schedule has multiple references
             self._humidifying_schedule = value
-            if self._dehumidifying_schedule is None:
-                self._dehumidifying_schedule = self._dehumidifying_schedule_no_limit
+            # if self._dehumidifying_schedule is None:
+            #     self._dehumidifying_schedule = self._dehumidifying_schedule_no_limit
         else:
             self._humidifying_schedule = None if self._dehumidifying_schedule is None \
                 else self._humidifying_schedule_no_limit
@@ -497,8 +499,8 @@ class Setpoint(_LoadBase):
 
     def _check_temperature_schedule_type(self, schedule, obj_name=''):
         """Check that the type limit of an input schedule is temperature."""
-        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval)), \
-            'Expected ScheduleRuleset or ScheduleFixedInterval for {} ' \
+        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
+            'Expected ScheduleRuleset or ScheduleFixedInterval or CSVSchedule for {} ' \
             'schedule. Got {}.'.format(obj_name, type(schedule))
         if schedule.schedule_type_limit is not None:
             assert schedule.schedule_type_limit.unit == 'C', '{} schedule ' \
@@ -507,8 +509,8 @@ class Setpoint(_LoadBase):
 
     def _check_humidity_schedule_type(self, schedule, obj_name=''):
         """Check that the type limit of an input schedule is percent."""
-        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval)), \
-            'Expected ScheduleRuleset or ScheduleFixedInterval for {} ' \
+        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
+            'Expected ScheduleRuleset or ScheduleFixedInterval or CSVSchedule for {} ' \
             'schedule. Got {}.'.format(obj_name, type(schedule))
         if schedule.schedule_type_limit is not None:
             assert schedule.schedule_type_limit.unit == '%', '{} schedule ' \
@@ -558,4 +560,4 @@ class Setpoint(_LoadBase):
         return 'Setpoint:\n name: {}\n heating: {}\n cooling: ' \
             '{}\n humidifying: {}\n dehumidifying: {}'.format(
                 self.name, self.heating_setpoint, self.cooling_setpoint,
-                self.humidifying_setpoint, self.dehumidifying_setpoint)
+                self.humidifying_schedule, self.humidifying_schedule)

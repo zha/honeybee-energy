@@ -13,7 +13,8 @@ _default_prop = {
     'power': ('Power', None, None, 'Continuous', 'Power'),
     'humidity': ('Humidity', 0, 100, 'Continuous', 'Percent'),
     'angle': ('Angle', 0, 180, 'Continuous', 'Angle'),
-    'delta_temperature': ('Delta Temperature', None, None, 'Continuous', 'DeltaTemperature')
+    'delta_temperature': ('Delta Temperature', None, None, 'Continuous', 'DeltaTemperature'),
+    'percent': ('Percent', 0 , 100, 'Continuous', 'Percent')
 }
 
 
@@ -66,6 +67,14 @@ try:
 except KeyError:
     delta_temperature = ScheduleTypeLimit(*_default_prop['delta_temperature'])
     _idf_schedule_type_limits['Delta Temperature'] = delta_temperature
+
+
+
+try:
+    percent = _idf_schedule_type_limits['Percent']
+except KeyError:
+    percent = ScheduleTypeLimit(*_default_prop['percent'])
+    _idf_schedule_type_limits['Percent'] = percent
 
 
 # make lists of schedule types to look up items in the library

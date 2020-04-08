@@ -9,6 +9,8 @@ from honeybee.typing import valid_string, float_positive, float_in_range
 from .schedule.ruleset import ScheduleRuleset
 from .schedule.fixedinterval import ScheduleFixedInterval
 
+from .schedule.csvschedule import CSVSchedule
+
 class IdealAirSystem(object):
     """Simple ideal air system object used to condition zones.
 
@@ -172,7 +174,7 @@ class IdealAirSystem(object):
 
     @heating_availability_schedule.setter
     def heating_availability_schedule(self, value):
-        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
             'Expected ScheduleRuleset or ScheduleFixedInterval. ' \
             ' Got {}.'.format(type(value))
         value.lock()   # lock editing in case schedule has multiple references
@@ -185,7 +187,7 @@ class IdealAirSystem(object):
 
     @cooling_availability_schedule.setter
     def cooling_availability_schedule(self, value):
-        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
             'Expected ScheduleRuleset or ScheduleFixedInterval. ' \
             ' Got {}.'.format(type(value))
         value.lock()  # lock editing in case schedule has multiple references
@@ -306,8 +308,11 @@ class IdealAirSystem(object):
             humid_type = 'Humidistat'
             humid_setpt = self._parent.properties.energy.setpoint.humidifying_setpoint
         else:
-            humid_type = 'None'
-            humid_setpt = ''
+            # humid_type = 'None'
+            # humid_setpt = ''
+
+            humid_type = 'Humidistat'
+            humid_setpt = '30'
         if self._parent.properties.energy.setpoint.dehumidifying_setpoint is not None:
             dehumid_type = 'Humidistat'
             dehumid_setpt = self._parent.properties.energy.setpoint.dehumidifying_setpoint

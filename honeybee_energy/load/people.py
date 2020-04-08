@@ -4,6 +4,8 @@ from __future__ import division
 
 from ._base import _LoadBase
 from ..schedule.ruleset import ScheduleRuleset
+from ..schedule.csvschedule import CSVSchedule
+
 from ..schedule.fixedinterval import ScheduleFixedInterval
 from ..reader import parse_idf_string
 from ..writer import generate_idf_string
@@ -93,7 +95,7 @@ class People(_LoadBase):
 
     @occupancy_schedule.setter
     def occupancy_schedule(self, value):
-        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
             'Expected ScheduleRuleset or ScheduleFixedInterval for People ' \
             'occupancy_schedule. Got {}.'.format(type(value))
         self._check_fractional_schedule_type(value, 'Occupancy')
@@ -108,7 +110,7 @@ class People(_LoadBase):
     @activity_schedule.setter
     def activity_schedule(self, value):
         if value is not None:
-            assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval)), \
+            assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
                 'Expected ScheduleRuleset or ScheduleFixedInterval for People' \
                 ' activity_schedule. Got {}.'.format(type(value))
             self._check_activity_schedule_type(value)
