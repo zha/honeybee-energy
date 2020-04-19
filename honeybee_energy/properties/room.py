@@ -10,6 +10,8 @@ from ..load.infiltration import Infiltration
 from ..load.ventilation import Ventilation
 from ..load.setpoint import Setpoint
 
+from ..control.shade import WindowShadeControl
+
 from ..lib.constructionsets import generic_construction_set
 from ..lib.programtypes import plenum_program
 
@@ -34,7 +36,7 @@ class RoomEnergyProperties(object):
 
     __slots__ = ('_host', '_program_type', '_construction_set', '_hvac',
                  '_people', '_lighting', '_electric_equipment', '_gas_equipment',
-                 '_infiltration', '_ventilation', '_setpoint')
+                 '_infiltration', '_ventilation', '_setpoint', '_shade_control')
 
     def __init__(self, host, program_type=None, construction_set=None, hvac=None):
         """Initialize Room energy properties.
@@ -66,6 +68,7 @@ class RoomEnergyProperties(object):
         self._infiltration = None
         self._ventilation = None
         self._setpoint = None
+        self._shade_control = None
 
     @property
     def host(self):
@@ -244,6 +247,21 @@ class RoomEnergyProperties(object):
                 'for Room setpoint. Got {}'.format(type(value))
             value.lock()   # lock because we don't duplicate the object
         self._setpoint = value
+
+    @property
+    def shade_control(self):
+        if self._shade_control is not None:
+            return self._shade_control
+        else:
+            return None
+
+    @shade_control.setter
+    def shade_control(self, value):
+        if value is not None:
+            assert isinstance(value, WindowShadeControl), ''
+            value._parent = self.host
+        self._shade_control = value
+
 
     @property
     def is_conditioned(self):

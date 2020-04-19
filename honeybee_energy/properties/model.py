@@ -114,7 +114,7 @@ class ModelEnergyProperties(object):
             room_constrs.extend(cnstr_set.modified_constructions_unique)
         # all_constrs = self.global_construction_set.constructions_unique + \
             # room_constrs + self.face_constructions + self.shade_constructions
-        return list(set(self.face_constructions))   # Modification 1: only return constructions that are used
+        return list(set(self.face_constructions)) + self.with_shade_construction  # Modification 1: only return constructions that are used
 
     @property
     def face_constructions(self):
@@ -127,6 +127,8 @@ class ModelEnergyProperties(object):
                     self._check_and_add_obj_construction(ap, constructions)
                 for dr in face.doors:  # check all Door constructions
                     self._check_and_add_obj_construction(dr, constructions)
+
+
         return list(set(constructions))
 
     @property
@@ -145,6 +147,14 @@ class ModelEnergyProperties(object):
                     for shade in ap.shades:
                         self._check_and_add_obj_construction(shade, constructions)
         return list(set(constructions))
+
+    @property
+    def with_shade_construction(self):
+        with_shade_construction = []
+        for room in self.host.rooms:
+            if room.properties.energy.shade_control is not None:
+                with_shade_construction.append(room.properties.energy.shade_control.construction)
+        return list(set(with_shade_construction))
 
     @property
     def construction_sets(self):
@@ -229,6 +239,7 @@ class ModelEnergyProperties(object):
             ventilation = room.properties.energy._ventilation
             setpoint = room.properties.energy._setpoint
             hvac = room.properties.energy._hvac
+            shade_control = room.properties.energy.shade_control
             if people is not None:
                 self._check_and_add_schedule(people.occupancy_schedule, scheds)
                 self._check_and_add_schedule(people.activity_schedule, scheds)
@@ -253,6 +264,9 @@ class ModelEnergyProperties(object):
             if hvac is not None:
                 self._check_and_add_schedule(hvac.heating_availability_schedule, scheds)
                 self._check_and_add_schedule(hvac.cooling_availability_schedule, scheds)
+
+            if shade_control is not None:
+                self._check_and_add_schedule(shade_control.schedule, scheds)
 
         return list(set(scheds))
 

@@ -270,6 +270,7 @@ def room_to_idf(room):
     gas_equipment = room.properties.energy.gas_equipment
     infiltration = room.properties.energy.infiltration
     ventilation = room.properties.energy.ventilation
+    window_shade_control  = room.properties.energy.shade_control
 
     if people is not None:
         zone_str.append(people.to_idf(room.name))
@@ -282,6 +283,9 @@ def room_to_idf(room):
     if infiltration is not None:
         zone_str.append(infiltration.to_idf(room.name))
 
+    if window_shade_control is not None:
+        zone_str.append(window_shade_control.to_idf())
+
     # write the ventilation, thermostat, and ideal air system
     if ventilation is not None:
         zone_str.append(ventilation.to_idf(room.name))
@@ -291,6 +295,9 @@ def room_to_idf(room):
         humidistat = room.properties.energy.setpoint.to_idf_humidistat(room.name)
         if humidistat is not None:
             zone_str.append(humidistat)
+
+    # if window_shade_control is not None:
+    #     zone_str.append(window_shade_control.to_idf())
 
     return '\n\n'.join(zone_str)
 
