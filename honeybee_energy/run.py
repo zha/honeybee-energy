@@ -11,7 +11,9 @@ import os
 from ladybug.futil import write_to_file_by_name, copy_files_to_folder
 
 
-def run_idf(idf_file_path, epw_file_path, energyplus_directory):
+import subprocess
+
+def run_idf(folder_path, epw_file_path) :  #, energyplus_directory):
     """Run an IDF file through energyplus.
 
     Args:
@@ -33,49 +35,54 @@ def run_idf(idf_file_path, epw_file_path, energyplus_directory):
             Will be None if no file exists.
     """
     # check the input files
-    assert os.path.isfile(idf_file_path), \
-        'No IDF file found at {}.'.format(idf_file_path)
+    assert os.path.isfile(os.path.join(folder_path, 'in.idf')), \
+        'No IDF file found at {}.'.format(folder_path)
     assert os.path.isfile(epw_file_path), \
         'No EPW file found at {}.'.format(epw_file_path)
-    assert os.path.isdir(energyplus_directory), \
-        'No EnergyPlus installation was found at {}.'.format(energyplus_directory)
+    # assert os.path.isdir(energyplus_directory), \
+    #     'No EnergyPlus installation was found at {}.'.format(energyplus_directory)
 
     # copy all files needed for simulation to the folder
-    directory, idf_file_name = os.path.split(idf_file_path)
-    idd_path = os.path.join(energyplus_directory, 'Energy+.idd')
-    copy_files_to_folder([idd_path, epw_file_path], directory, True)
+    # directory, idf_file_name = os.path.split(idf_file_path)
+    # idd_path = os.path.join(energyplus_directory, 'Energy+.idd')
+    # copy_files_to_folder([idd_path, epw_file_path], directory, True)
 
     # rename the weather file to in.epw
-    folder, epw_file_name = os.path.split(epw_file_path)
-    old_file_name = os.path.join(directory, epw_file_name)
-    new_file_name = os.path.join(directory, 'in.epw')
-    try:
-        os.remove(new_file_name)
-    except Exception:
-        pass  # file does not yet exist
-    os.rename(old_file_name, new_file_name)
+    # folder, epw_file_name = os.path.split(epw_file_path)
+    # old_file_name = os.path.join(directory, epw_file_name)
+    # new_file_name = os.path.join(directory, 'in.epw')
+    # try:
+    #     os.remove(new_file_name)
+    # except Exception:
+    #     pass  # file does not yet exist
+    # os.rename(old_file_name, new_file_name)
 
     # write a batch file
-    expand_path = os.path.join(energyplus_directory, 'ExpandObjects')
-    run_path = os.path.join(energyplus_directory, 'EnergyPlus')
-    eso_path = os.path.join(energyplus_directory, 'PostProcess', 'ReadVarsESO')   # Also run ESO to convert ESO to CSV
-    working_drive = directory[:2]
-    batch = '{}\ncd {}\n{}\nif exist expanded.idf MOVE expanded.idf in.idf\n{}\n{}'.format(
-        working_drive, directory, expand_path, run_path, eso_path)
-    write_to_file_by_name(directory, 'in.bat', batch, True)
+    # expand_path = os.path.join(energyplus_directory, 'ExpandObjects')
+    # run_path = os.path.join(energyplus_directory, 'EnergyPlus')
+    # eso_path = os.path.join(energyplus_directory, 'PostProcess', 'ReadVarsESO')   # Also run ESO to convert ESO to CSV
+    # working_drive = directory[:2]
+    # batch = '{}\ncd {}\n{}\nif exist expanded.idf MOVE expanded.idf in.idf\n{}\n{}'.format(
+    #     working_drive, directory, expand_path, run_path, eso_path)
+    # write_to_file_by_name(directory, 'in.bat', batch, True)
 
     # run the batch file
-    os.system(os.path.join(directory, 'in.bat'))
+    # os.system(os.path.join(directory, 'in.bat'))
+
+    # print('energyplus -w "{}" -r -x "{}"'.format(epw_file_path, idf_file_path))
+    subprocess.Popen('energyplus -w {} -r -x -d {} {}'.format(epw_file_path, folder_path, os.path.join(folder_path, 'in.idf')),
+                     cwd = folder_path, shell = True)
+
 
     # output the simulation files
-    sql_file = os.path.join(directory, 'eplusout.sql')
-    eio_file = os.path.join(directory, 'eplusout.eio')
-    rdd_file = os.path.join(directory, 'eplusout.rdd')
-    html_file = os.path.join(directory, 'inTable.html')
-
-    sql = sql_file if os.path.isfile(sql_file) else None
-    eio = eio_file if os.path.isfile(eio_file) else None
-    rdd = rdd_file if os.path.isfile(rdd_file) else None
-    html = sql_file if os.path.isfile(html_file) else None
-
-    return sql, eio, rdd, html
+    # sql_file = os.path.join(directory, 'eplusout.sql')
+    # eio_file = os.path.join(directory, 'eplusout.eio')
+    # rdd_file = os.path.join(directory, 'eplusout.rdd')
+    # html_file = os.path.join(directory, 'inTable.html')
+    #
+    # sql = sql_file if os.path.isfile(sql_file) else None
+    # eio = eio_file if os.path.isfile(eio_file) else None
+    # rdd = rdd_file if os.path.isfile(rdd_file) else None
+    # html = sql_file if os.path.isfile(html_file) else None
+    #
+    # return sql, eio, rdd, html
