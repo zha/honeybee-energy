@@ -70,8 +70,9 @@ def run_idf(folder_path, epw_file_path) :  #, energyplus_directory):
     # os.system(os.path.join(directory, 'in.bat'))
 
     # print('energyplus -w "{}" -r -x "{}"'.format(epw_file_path, idf_file_path))
-    subprocess.Popen('energyplus -w {} -r -x -d {} {}'.format(epw_file_path, folder_path, os.path.join(folder_path, 'in.idf')),
+    process = subprocess.Popen('energyplus -w {} -r -x -d {} {}'.format(epw_file_path, folder_path, os.path.join(folder_path, 'in.idf')),
                      cwd = folder_path, shell = True)
+    process.wait()
 
 
     # output the simulation files
