@@ -305,18 +305,18 @@ class IdealAirSystem(object):
             c_lim_type = 'NoLimit'
             air_limit = cool_limit = ''
 
-        if self._parent.properties.energy.setpoint.humidifying_setpoint == 'none':
-            humid_type = 'None'
-            humid_setpt = ''
-        elif self._parent.properties.energy.setpoint.humidifying_setpoint is not None:
+        # if self._parent.properties.energy.setpoint.humidifying_setpoint == 'none':
+        #     humid_type = 'None'
+        #     humid_setpt = ''
+        if self._parent.properties.energy.setpoint.humidifying_setpoint is not None:
             humid_type = 'Humidistat'
             humid_setpt = self._parent.properties.energy.setpoint.humidifying_setpoint
         else:
-            # humid_type = 'None'
-            # humid_setpt = ''
+            humid_type = 'None'
+            humid_setpt = ''
 
-            humid_type = 'Humidistat'
-            humid_setpt = '30'
+            # humid_type = 'Humidistat'
+            # humid_setpt = '30'
         if self._parent.properties.energy.setpoint.dehumidifying_setpoint is not None:
             dehumid_type = 'Humidistat'
             dehumid_setpt = self._parent.properties.energy.setpoint.dehumidifying_setpoint
