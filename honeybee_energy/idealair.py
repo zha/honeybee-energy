@@ -106,8 +106,8 @@ class IdealAirSystem(object):
     @cooling_limit.setter
     def cooling_limit(self, value):
         if value is None:
-            assert self.economizer_type == 'NoEconomizer', 'Ideal air system ' \
-                'economizer_type must be "NoEconomizer" to have no cooling limit.'
+            # assert self.economizer_type == 'NoEconomizer', 'Ideal air system ' \
+            #     'economizer_type must be "NoEconomizer" to have no cooling limit.'
             self._cooling_limit = None
         elif isinstance(value, str) and value.lower() == 'autosize':
             self._cooling_limit = 'autosize'
