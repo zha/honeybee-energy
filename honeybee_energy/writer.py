@@ -409,7 +409,11 @@ def model_to_idf(model, schedule_directory=None,
             materials.extend(constr.materials)
             construction_strs.append(constr.to_idf())
         except AttributeError:
-            pass  # ShadeConstruction; No need to write to IDF
+            try:
+                construction_strs.append(constr.to_idf())
+
+            except:
+                pass  # ShadeConstruction; No need to write to IDF
     model_str.append('!-   ============== MATERIALS ==============\n')
     model_str.extend([mat.to_idf() for mat in set(materials)])
     model_str.append('!-   ============ CONSTRUCTIONS ============\n')

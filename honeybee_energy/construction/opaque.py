@@ -53,7 +53,7 @@ class OpaqueConstruction(_ConstructionBase):
                             'Got {}'.format(type(mats)))
         for mat in mats:
             assert isinstance(mat, _EnergyMaterialOpaqueBase), 'Expected opaque energy' \
-                ' material for construction. Got {}.'.format(type(mat))
+                                                               ' material for construction. Got {}.'.format(type(mat))
         assert len(mats) > 0, 'Construction must possess at least one material.'
         assert len(mats) <= 10, 'Opaque Construction cannot have more than 10 materials.'
         self._materials = mats
@@ -133,9 +133,9 @@ class OpaqueConstruction(_ConstructionBase):
             angle = abs(180 - angle)
         in_r_init = 1 / self.in_h_simple()
         r_values = [1 / self.out_h(outside_wind_speed, outside_temperature + 273.15)] + \
-            [mat.r_value for mat in self.materials] + [in_r_init]
+                   [mat.r_value for mat in self.materials] + [in_r_init]
         in_delta_t = (in_r_init / sum(r_values)) * \
-            (outside_temperature - inside_temperature)
+                     (outside_temperature - inside_temperature)
         r_values[-1] = 1 / self.in_h(inside_temperature - (in_delta_t / 2) + 273.15,
                                      in_delta_t, height, angle, pressure)
         temperatures = self._temperature_profile_from_r_values(
@@ -256,7 +256,7 @@ class OpaqueConstruction(_ConstructionBase):
         mat_pattern2 = re.compile(r"(?i)(Material:NoMass,[\s\S]*?;)")
         mat_pattern3 = re.compile(r"(?i)(Material:AirGap,[\s\S]*?;)")
         material_str = mat_pattern1.findall(file_contents) + \
-            mat_pattern2.findall(file_contents) + mat_pattern3.findall(file_contents)
+                       mat_pattern2.findall(file_contents) + mat_pattern3.findall(file_contents)
         materials_dict = OpaqueConstruction._idf_materials_dictionary(material_str)
         materials = list(materials_dict.values())
         # extract all of the construction objects
@@ -289,3 +289,105 @@ class OpaqueConstruction(_ConstructionBase):
     def __repr__(self):
         """Represent opaque energy construction."""
         return self._generate_idf_string('opaque', self.name, self.materials)
+
+
+@lockable
+class OpaqueConstruction_mod(object):  # For simple use of RAS model
+    # NOTE: THE FOLLOWING VALUES ARE OBTAINED FROM Commercial Prototype Building Models
+    # https://www.energycodes.gov/development/commercial/prototype_models
+    # ANSI/ASHRAE/IES Standard 90.1 -- 2019
+    def __init__(self, wall_type):
+        self._wall_type = wall_type
+
+    @property
+    def name(self):
+        if self._wall_type == 'extwall': return 'nonres_ext_wall'
+        elif self._wall_type == 'ceiling' or self._wall_type == 'floor': return 'floor_ceiling'
+        elif self._wall_type == 'intwall': return 'int_wall'
+
+    def to_idf(self):
+
+        if self._wall_type == 'extwall':
+            return '''Construction,
+    nonres_ext_wall,               !- Name
+    F07 25mm stucco,               !- Outside Layer
+    G01 16mm gypsum board,         !- Layer #2
+    Nonres_Exterior_Wall_Insulation,      !- Layer #3
+    G01 16mm gypsum board;         !- Layer #4
+        
+        Material,
+            F07 25mm stucco,         !- Name
+            Smooth,                  !- Roughness
+            0.0254,                  !- Thickness {m}
+            0.72,                    !- Conductivity {W/m-K}
+            1856,                    !- Density {kg/m3}
+            840,                     !- Specific Heat {J/kg-K}
+            0.9,                     !- Thermal Absorptance
+            0.7,                     !- Solar Absorptance
+            0.7;                     !- Visible Absorptance
+        Material,
+            G01 16mm gypsum board,   !- Name
+            MediumSmooth,            !- Roughness
+            0.0159,                  !- Thickness {m}
+            0.16,                    !- Conductivity {W/m-K}
+            800,                     !- Density {kg/m3}
+            1090;                    !- Specific Heat {J/kg-K}
+        Material:NoMass,
+            Nonres_Exterior_Wall_Insulation,  !- Name
+            MediumSmooth,            !- Roughness
+            1.71282848878858,
+                    !- Thermal Resistance {m2-K/W}
+            0.9,                     !- Thermal Absorptance
+            0.7,                     !- Solar Absorptance
+            0.7;                     !- Visible Absorptance
+    '''
+        elif self._wall_type == 'intwall':
+            return ''' Construction,
+    int_wall,                !- Name
+    G01 13mm gypsum board,   !- Outside Layer
+    G01 13mm gypsum board;   !- Layer 2
+        Material,
+            G01 13mm gypsum board,   !- Name
+            Smooth,                  !- Roughness
+            0.0127,                  !- Thickness {m}
+            0.1600,                  !- Conductivity {W/m-K}
+            800.0000,                !- Density {kg/m3}
+            1090.0000,               !- Specific Heat {J/kg-K}
+            0.9000,                  !- Absorptance:Thermal
+            0.7000,                  !- Absorptance:Solar
+            0.5000;                  !- Absorptance:Visible
+            '''
+        if self._wall_type == 'ceiling' or self._wall_type == 'floor':
+            return ''' Construction,
+    floor_ceiling,                !- Name
+    Insulation,               !- Outside Layer
+    100mm Normalweight concrete floor,         !- Layer #1
+    CP02 CARPET PAD;         !- Layer #2
+    
+        Material:NoMass,
+            Insulation,  !- Name
+            MediumSmooth,            !- Roughness
+        
+            0.0299387330245182,
+                    !- Thermal Resistance {m2-K/W}
+            0.9,                     !- Thermal Absorptance
+            0.7,                     !- Solar Absorptance
+            0.7;                     !- Visible Absorptance
+
+        Material,
+            100mm Normalweight concrete floor,  !- Name  - based on 90.1-2004 Appendix-Table A3-1B
+            MediumRough,             !- Roughness
+            0.1016,                  !- Thickness {m}
+            2.31,                    !- Conductivity {W/m-K}
+            2322,       !- Density {kg/m3}
+            832;           !- Specific Heat {J/kg-K}
+            
+        Material:NoMass,
+            CP02 CARPET PAD,         !- Name
+            VeryRough,               !- Roughness
+            0.21648,                 !- Thermal Resistance {m2-K/W}
+            0.9,                     !- Thermal Absorptance
+            0.7,                     !- Solar Absorptance
+            0.8;                     !- Visible Absorptance'''
+
+

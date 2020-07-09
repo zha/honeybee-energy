@@ -1,6 +1,8 @@
 # coding=utf-8
 """Face Energy Properties."""
 from ..construction.opaque import OpaqueConstruction
+from ..construction.opaque import OpaqueConstruction_mod
+
 from ..lib.constructionsets import generic_construction_set
 
 
@@ -55,7 +57,7 @@ class FaceEnergyProperties(object):
     @construction.setter
     def construction(self, value):
         if value is not None:
-            assert isinstance(value, OpaqueConstruction), \
+            assert isinstance(value, (OpaqueConstruction, OpaqueConstruction_mod)), \
                 'Expected Opaque Construction for face. Got {}'.format(type(value))
             value.lock()  # lock editing in case construction has multiple references
         self._construction = value
