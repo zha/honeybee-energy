@@ -327,7 +327,8 @@ class SimulationParameter(object):
 
         # add simulation settings
         sim_param_str.append(self.simulation_control.to_idf())
-        sim_param_str.append(self.shadow_calculation.to_idf())
+        # sim_param_str.append(self.shadow_calculation.to_idf())   # Disable the shadow calculation b/c EP 9.3 will
+                                                                   # throw an error
         sim_param_str.append(generate_idf_string(
             'Timestep', [self.timestep], ['timesteps per hour']))
 
