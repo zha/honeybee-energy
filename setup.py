@@ -7,8 +7,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="honeybee-energy",
-    use_scm_version=True,
-    setup_requires=['setuptools_scm'],
+    # use_scm_version=True,
+    # setup_requires=['setuptools_scm'],
     author="Ladybug Tools",
     author_email="info@ladybug.tools",
     description="Energy simulation library for honeybee.",
