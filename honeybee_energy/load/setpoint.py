@@ -396,11 +396,36 @@ class Setpoint(_LoadBase):
         Args:
             zone_name: Text for the zone name that the Setpoint object is assigned to.
         """
-        values = ('{}..{}'.format(self.name, zone_name), self.heating_schedule.name, '',
-                  self.cooling_schedule.name, '')
-        comments = ('name', 'heating setpoint schedule', 'heating setpoint {C}',
-                    'cooling setpoint schedule', 'cooling setpoint {C}')
-        return generate_idf_string('HVACTemplate:Thermostat', values, comments)
+        # values = ('{}..{}'.format(self.name, zone_name), self.heating_schedule.name, '',
+        #           self.cooling_schedule.name, '')
+        # comments = ('name', 'heating setpoint schedule', 'heating setpoint {C}',
+        #             'cooling setpoint schedule', 'cooling setpoint {C}')
+
+        schedule_string ="""ScheduleTypeLimits,
+          HVACTemplate Any Number;                                 !- Name
+        
+        Schedule:Compact,
+          HVACTemplate-Always 4,                                   !- Name
+          HVACTemplate Any Number,                                 !- Schedule Type Limits Name
+          Through: 12/31,                                          !- Field 1
+          For: AllDays,                                            !- Field 2
+          Until: 24:00,                                            !- Field 3
+          4;                                                       !- Field 4
+        """
+
+        values = ('{}..{}'.format(self.name, zone_name), zone_name,
+                    'HVACTemplate-Always 4', 'ThermostatSetpoint:DualSetpoint', 'dual_setp_ctrl')
+        comments = ('name', 'Zone or ZoneList Name',
+                    'Control Type Schedule Name', 'Control Object Type', 'Control Name')
+
+        values_setpoint = ('dual_setp_ctrl', self.heating_schedule.name, self.cooling_schedule.name )
+        comments_setpoint = ('name', 'Heating Setpoint Temperature Schedule Name',
+                              'Cooling Setpoint Temperature Schedule Name')
+
+
+        return "\n\n".join((generate_idf_string('ZoneControl:Thermostat', values, comments),
+                           schedule_string,
+                           generate_idf_string('ThermostatSetpoint:DualSetpoint', values_setpoint, comments_setpoint)))
 
     def to_idf_humidistat(self, zone_name):
         """IDF string representation of Setpoint object's humidistat.

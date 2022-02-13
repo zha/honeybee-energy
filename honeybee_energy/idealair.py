@@ -347,27 +347,86 @@ class IdealAirSystem(object):
         # return a full IDF string
         thermostat = '{}..{}'.format(self._parent.properties.energy.setpoint.name,
                                      self._parent.name)
-        values = (self._parent.name, thermostat,
-                  '', 40, 13, '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
-                  air_limit, cool_limit, heating_avail_sch, cooling_avail_sch,
-                  dehumid_type, 0.7, dehumid_setpt, humid_type, humid_setpt, oa_method,
-                  '', '', '', oa_name, dcv,   self.economizer_type, heat_recovery,
-                  self.sensible_heat_recovery, self.latent_heat_recovery)
-        comments = (
-            'zone name', 'template thermostat name', 'availability schedule',
-            'heating supply air temp {C}', 'cooling supply air temp {C}',
-            'max heating supply air hr {kg-H2O/kg-air}',
-            'min cooling supply air hr {kg-H2O/kg-air}',
-            'heating limit', 'max heating fow rate {m3/s}', 'max sensible heat capacity',
-            'cooling limit', 'max cooling fow rate {m3/s}', 'max total cooling capacity',
-            'heating availability schedule', 'cooling availability schedule',
-            'dehumidification type', 'cooling shr', 'dehumidification setpoint',
-            'humidification type', 'humidification setpoint', 'outdoor air method',
-            'oa per person', 'oa per area', 'oa per zone', 'outdoor air object name',
-            'demand controlled vent type', 'economizer type', 'heat recovery type',
-            'sensible heat recovery effectiveness', 'latent heat recovery effectiveness')
-        return generate_idf_string(
-            'HVACTemplate:Zone:IdealLoadsAirSystem', values, comments)
+        # values = (self._parent.name, thermostat,
+        #           '', 40, 13, '', '', h_lim_type, air_limit, heat_limit, c_lim_type,
+        #           air_limit, cool_limit, heating_avail_sch, cooling_avail_sch,
+        #           dehumid_type, 0.7, dehumid_setpt, humid_type, humid_setpt, oa_method,
+        #           '', '', '', oa_name, dcv,   self.economizer_type, heat_recovery,
+        #           self.sensible_heat_recovery, self.latent_heat_recovery)
+        # comments = (
+        #     'zone name', 'template thermostat name', 'availability schedule',
+        #     'heating supply air temp {C}', 'cooling supply air temp {C}',
+        #     'max heating supply air hr {kg-H2O/kg-air}',
+        #     'min cooling supply air hr {kg-H2O/kg-air}',
+        #     'heating limit', 'max heating fow rate {m3/s}', 'max sensible heat capacity',
+        #     'cooling limit', 'max cooling fow rate {m3/s}', 'max total cooling capacity',
+        #     'heating availability schedule', 'cooling availability schedule',
+        #     'dehumidification type', 'cooling shr', 'dehumidification setpoint',
+        #     'humidification type', 'humidification setpoint', 'outdoor air method',
+        #     'oa per person', 'oa per area', 'oa per zone', 'outdoor air object name',
+        #     'demand controlled vent type', 'economizer type', 'heat recovery type',
+        #     'sensible heat recovery effectiveness', 'latent heat recovery effectiveness')
+        values = ('zone ideal air load', "",
+                  'supply air node', '',
+                  '',
+                  40, 13,
+                  0.0156, 0.0077,
+                  h_lim_type, air_limit, heat_limit,
+                  c_lim_type, air_limit, cool_limit,
+                  heating_avail_sch, cooling_avail_sch,
+                  dehumid_type, 0.7, humid_setpt,
+                  oa_name, 'Outdoor Air Inlet',
+                  dcv, self.economizer_type,
+                  heat_recovery,
+                  self.sensible_heat_recovery, self.latent_heat_recovery
+        )
+
+        comments = ('name', 'availability schedule',
+                    'supply air node name', 'Exhaust Air Node Name',
+                    'system inlet air node',
+                    'heating supply air temp {C}', 'cooling supply air temp {C}',
+                    'max heating supply air hr {kg-H2O/kg-air}',
+                    'min cooling supply air hr {kg-H2O/kg-air}',
+                    'Heating limit', 'max heating fow rate {m3/s}', 'max sensible heat capacity',
+                    'cooling limit', 'max cooling fow rate {m3/s}', 'max total cooling capacity',
+                    'heating availability schedule', 'cooling availability schedule',
+                    'dehumidification type', 'cooling shr', 'humidification type',
+                    'outdoor air object name', 'outdoor air inlet name',
+                    'demand controlled vent type', 'economizer type',
+                    'heat recovery type',
+                    'sensible heat recovery effectiveness', 'latent heat recovery effectiveness'
+                    )
+
+        connection_value = (self._parent.name, 'eqp list',
+                            'supply air node',
+                            '',
+                            'zone air node',
+                            'return air node'
+                            )
+
+        connection_comments = ('Zone Name', 'Zone Conditioning Equipment List Name',
+                               'Zone Air Inlet Node or NodeList Name',
+                               'Zone Air Exhaust Node or NodeList Name',
+                               'Zone Air Node Name',
+                               'Zone Return Air Node Name')
+
+        eqplist_value = ('eqp list', 'SequentialLoad',
+                         'ZoneHVAC:IdealLoadsAirSystem',
+                         'zone ideal air load', 1, 1
+                         )
+
+        eqplist_comment = ('name', 'Load Distribution Scheme',
+                           'Zone Equipment Object Type',
+                           'Zone Equipment Name',
+                           'Zone Equipment Cooling Sequence',
+                           'Zone Equipment Heating or No-Load Sequence')
+
+
+        return "\n\n".join((generate_idf_string(
+                           'ZoneHVAC:IdealLoadsAirSystem', values, comments),
+                           generate_idf_string('ZoneHVAC:EquipmentConnections', connection_value, connection_comments),
+                          generate_idf_string('ZoneHVAC:EquipmentList', eqplist_value, eqplist_comment),
+        ))
 
     def to_dict(self):
         """IdealAirSystem dictionary representation."""
