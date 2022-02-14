@@ -5,6 +5,7 @@ from __future__ import division
 from ._base import _LoadBase
 from ..schedule.ruleset import ScheduleRuleset
 from ..schedule.csvschedule import CSVSchedule
+from ..schedule.necb import NECB
 
 from ..schedule.fixedinterval import ScheduleFixedInterval
 from ..reader import parse_idf_string
@@ -82,7 +83,7 @@ class _EquipmentBase(_LoadBase):
 
     @schedule.setter
     def schedule(self, value):
-        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
+        assert isinstance(value, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule, NECB)), \
             'Expected ScheduleRuleset or ScheduleFixedInterval for equipment ' \
             'schedule. Got {}.'.format(type(value))
         self._check_fractional_schedule_type(value, 'Equipment')

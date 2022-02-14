@@ -7,6 +7,8 @@ from ..schedule.ruleset import ScheduleRuleset
 from ..schedule.fixedinterval import ScheduleFixedInterval
 
 from ..schedule.csvschedule import CSVSchedule
+from ..schedule.necb import NECB
+
 from ..reader import parse_idf_string
 from ..writer import generate_idf_string
 
@@ -524,7 +526,7 @@ class Setpoint(_LoadBase):
 
     def _check_temperature_schedule_type(self, schedule, obj_name=''):
         """Check that the type limit of an input schedule is temperature."""
-        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule)), \
+        assert isinstance(schedule, (ScheduleRuleset, ScheduleFixedInterval, CSVSchedule, NECB)), \
             'Expected ScheduleRuleset or ScheduleFixedInterval or CSVSchedule for {} ' \
             'schedule. Got {}.'.format(obj_name, type(schedule))
         if schedule.schedule_type_limit is not None:
