@@ -12,6 +12,8 @@ logger = get_logger(__name__, filename='honeybee-energy.log')
 
 #  find and import honeybee_energy extensions
 #  this is a critical step to add additional functionalities to honeybee_energy library.
+
+"""
 extensions = {}
 for finder, name, ispkg in pkgutil.iter_modules():
     if not name.startswith('honeybee_energy_') or name.count('_') > 2:
@@ -22,3 +24,4 @@ for finder, name, ispkg in pkgutil.iter_modules():
         logger.exception('Failed to import {0}!'.format(name))
     else:
         logger.info('Successfully imported Honeybee-energy plugin: {}'.format(name))
+"""
