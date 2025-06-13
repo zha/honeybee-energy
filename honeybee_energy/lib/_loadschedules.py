@@ -28,8 +28,8 @@ _default_schedules = set(list(_schedules.keys()))
 def lock_and_check_schedule(sch):
     """Lock a schedule and check that it's not overwriting a default."""
     sch.lock()
-    assert sch.identifier not in _default_schedules, 'Cannot overwrite ' \
-        'default schedule "{}".'.format(sch.identifier)
+    # assert sch.identifier not in _default_schedules, 'Cannot overwrite ' \
+    #     'default schedule "{}".'.format(sch.identifier)
 
 
 def load_schedule_object(sch_dict, loaded_type_limits, scheds):

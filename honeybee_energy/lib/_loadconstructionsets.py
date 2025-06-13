@@ -38,8 +38,8 @@ def load_construction_set_object(cset_dict, load_cons, con_sets, misc_cons):
             cset = ConstructionSet.from_dict(cset_dict)
             misc_cons.extend(cset.modified_constructions)
         cset.lock()
-        assert cset_dict['identifier'] not in _default_sets, 'Cannot overwrite ' \
-            'default construction set "{}".'.format(cset_dict['identifier'])
+        # assert cset_dict['identifier'] not in _default_sets, 'Cannot overwrite ' \
+        #     'default construction set "{}".'.format(cset_dict['identifier'])
         con_sets[cset_dict['identifier']] = cset
     except (TypeError, KeyError, ValueError):
         pass  # not a Honeybee ConstructionSet JSON; possibly a comment

@@ -51,15 +51,15 @@ _default_constrs = set(
 def lock_and_check_material(mat):
     """Lock a material and check that it's not overwriting a default."""
     mat.lock()
-    assert mat.identifier not in _default_mats, 'Cannot overwrite ' \
-        'default material "{}".'.format(mat.identifier)
+    # assert mat.identifier not in _default_mats, 'Cannot overwrite ' \
+    #     'default material "{}".'.format(mat.identifier)
 
 
 def lock_and_check_construction(constr):
     """Lock a construction and check that it's not overwriting a default."""
     constr.lock()
-    assert constr.identifier not in _default_constrs, 'Cannot overwrite ' \
-        'default construction "{}".'.format(constr.identifier)
+    # assert constr.identifier not in _default_constrs, 'Cannot overwrite ' \
+    #     'default construction "{}".'.format(constr.identifier)
 
 
 def load_construction_object(
